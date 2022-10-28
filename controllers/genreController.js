@@ -1,34 +1,41 @@
-const Author = require("../models/author")
+const Genre = require("../models/genre");
 
-exports.author_lists = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author list");
-}
-
-exports.author_detail = (req, res) => {
-    res.send(`NOT IMPLEMENTED: Author detail: ${req.params.id}`);
-}
-
-exports.author_create_get = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author create GET")
-}
-
-exports.author_create_post = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author create POST");
-}
-
-exports.author_delete_get = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author delete GET");
-  };
-
-exports.author_delete_post = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author delete POST");
+// Display list of all Genre.
+exports.genre_list = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre list");
 };
 
-exports.author_update_get = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author update GET");
+// Display detail page for a specific Genre.
+exports.genre_detail = (req, res) => {
+  res.send(`NOT IMPLEMENTED: Genre detail: ${req.params.id}`);
 };
-  
-exports.author_update_post = (req, res) => {
-    res.send("NOT IMPLEMENTED: Author update POST");
+
+// Display Genre create form on GET.
+exports.genre_create_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre create GET");
 };
-  
+
+// Handle Genre create on POST.
+exports.genre_create_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre create POST");
+};
+
+// Display Genre delete form on GET.
+exports.genre_delete_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre delete GET");
+};
+
+// Handle Genre delete on POST.
+exports.genre_delete_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre delete POST");
+};
+
+// Display Genre update form on GET.
+exports.genre_update_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre update GET");
+};
+
+// Handle Genre update on POST.
+exports.genre_update_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Genre update POST");
+};
