@@ -1,41 +1,70 @@
+const Book = require("../models/book");
+const Author = require("../models/author");
+const Genre = require("../models/genre");
 const BookInstance = require("../models/bookinstance");
 
-// Display list of all BookInstances.
-exports.bookinstance_list = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance list");
+const async = require("async");
+
+exports.index = (req, res) => {
+  async.parallel(
+    {
+      book_count(callback) {
+        Book.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
+      },
+      book_instance_count(callback) {
+        BookInstance.countDocuments({}, callback);
+      },
+      book_instance_available_count(callback) {
+        BookInstance.countDocuments({ status: "Available" }, callback);
+      },
+      author_count(callback) {
+        Author.countDocuments({}, callback);
+      },
+      genre_count(callback) {
+        Genre.countDocuments({}, callback);
+      },
+    },
+    (err, results) => {
+      res.render("index", {
+        title: "Local Library Home",
+        error: err,
+        data: results,
+      });
+    }
+  );
 };
 
-// Display detail page for a specific BookInstance.
-exports.bookinstance_detail = (req, res) => {
-  res.send(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
+// Display detail page for a specific book.
+exports.book_detail = (req, res) => {
+  res.send(`NOT IMPLEMENTED: Book detail: ${req.params.id}`);
 };
 
-// Display BookInstance create form on GET.
-exports.bookinstance_create_get = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance create GET");
+// Display book create form on GET.
+exports.book_create_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book create GET");
 };
 
-// Handle BookInstance create on POST.
-exports.bookinstance_create_post = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance create POST");
+// Handle book create on POST.
+exports.book_create_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book create POST");
 };
 
-// Display BookInstance delete form on GET.
-exports.bookinstance_delete_get = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance delete GET");
+// Display book delete form on GET.
+exports.book_delete_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book delete GET");
 };
 
-// Handle BookInstance delete on POST.
-exports.bookinstance_delete_post = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance delete POST");
+// Handle book delete on POST.
+exports.book_delete_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book delete POST");
 };
 
-// Display BookInstance update form on GET.
-exports.bookinstance_update_get = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance update GET");
+// Display book update form on GET.
+exports.book_update_get = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book update GET");
 };
 
-// Handle bookinstance update on POST.
-exports.bookinstance_update_post = (req, res) => {
-  res.send("NOT IMPLEMENTED: BookInstance update POST");
+// Handle book update on POST.
+exports.book_update_post = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book update POST");
 };
