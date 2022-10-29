@@ -34,6 +34,11 @@ exports.index = (req, res) => {
   );
 };
 
+// Display list of all books.
+exports.book_list = (req, res) => {
+  res.send("NOT IMPLEMENTED: Book list");
+};
+
 // Display detail page for a specific book.
 exports.book_detail = (req, res) => {
   res.send(`NOT IMPLEMENTED: Book detail: ${req.params.id}`);
