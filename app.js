@@ -6,9 +6,15 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const catalogRouter = require("./routes/catalog");
+const catalogRouter = require('./routes/catalog');
+
+const compression = require("compression");
+const helmet = require("helmet");
 
 var app = express();
+
+app.use(compression())
+app.use(helmet());
 
 //Connecting to mongoDB
 
@@ -54,3 +60,8 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+
+
+
