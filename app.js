@@ -20,7 +20,10 @@ app.use(helmet());
 
 const mongoose = require("mongoose")  //Import mongoose
 
-const mongoDB = "mongodb+srv://admin:toor@cluster0.92wavai.mongodb.net/?retryWrites=true&w=majority"; //Set up mongoose connection 
+// Set up mongoose connection
+const dev_db_url = "mongodb+srv://admin:toor@cluster0.92wavai.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
+
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, })
 
 const db = mongoose.connection //Get default connection 
